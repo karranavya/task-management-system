@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Task</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="create-task-container">
+        <h1>Create New Task</h1>
+        <form id="taskForm" class="task-form" method="POST" action="{{ url_for('create_task') }}">
+            <div class="form-group">
+                <label for="projectName">Project Name:</label>
+                <input type="text" id="projectName" required>
+            </div>
+            <div class="form-group">
+                <label for="taskName">Task Name:</label>
+                <input type="text" id="taskName" required>
+            </div>
+            <div class="form-group">
+                <label for="taskInfo">Task Information:</label>
+                <textarea id="taskInfo" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="deadline">Deadline:</label>
+                <input type="datetime-local" id="deadline" required>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Create Task</button>
+                <button type="button" class="btn-secondary" onclick="window.location.href=`{{ url_for('index') }}`">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='create-task.js') }}"></script>
+</body>
+</html>
